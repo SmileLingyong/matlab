@@ -1533,20 +1533,20 @@ hold off   È¡Ïûµ±Ç°×ø±êÖáºÍÍ¼ÐÎ±£³Ö£¬ÕâÖÖ×´Ì¬ÏÂ£¬µ÷ÓÃplot»æÖÆÍêÈ«ÐÂµÄÍ¼ÐÎ£¬²»±£Á
 % ÈçÔÚÈô¸Éº¯ÊýÖÐ£¬¶¼°ÑÄ³Ò»±äÁ¿¶¨ÒåÎªÈ«¾Ö±äÁ¿£¬ÄÇÃ´ÕâÐ©º¯Êý½«¹²ÓÃÕâ¸ö±äÁ¿¡£
 % È«¾Ö±äÁ¿µÄ×÷ÓÃÓòÊÇÕû¸öMatlabµÄ¹¤×÷¿Õ¼ä£¬ËùÓÐº¯Êý¶¼¿ÉÒÔ¶ÔËü½øÐÐ´æÈ¡ºÍÐÞ¸Ä¡£
 % È«¾Ö±äÁ¿ÓÃglobalÃüÁî¶¨Òå£¬¸ñÊ½Îª£º
-                global ±äÁ¿Ãû                      %#ok
+                global ±äÁ¿Ãû    %#ok
             % ¡¾Àý5¡¿È«¾Ö±äÁ¿Ó¦ÓÃÊ¾Àý¡£
             %  ÏÈ½¨Á¢º¯ÊýÎÄ¼þwadd.m£¬¸Ãº¯Êý½«ÊäÈëµÄ²ÎÊý¼ÓÈ¨Ïà¼Ó£º
              function f = wadd(x,y)             %#ok                           
              global ALPHA BETA                                       
              f = ALPHA*x + BETA*y;                                 
-             %  ÔÚÃüÁî´°¿ÚÖÐÊäÈë£º                                                  
+             %ÔÚÃüÁî´°¿ÚÖÐÊäÈë£º                                                  
              global ALPHA BETA                %#ok                                        
-             ALPHA = 1;                            %#ok          
-             BETA = 2;                              %#ok          
-             s = wadd(1,2)
-             %  Êä³öÎª£º
-             %         s = 
-             %                5
+             ALPHA = 1;
+             BETA = 2;
+              s = wadd(1,2)
+              Êä³öÎª£º
+                s = 
+                       5
 
 
  
