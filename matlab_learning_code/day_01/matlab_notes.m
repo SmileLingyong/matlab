@@ -281,7 +281,7 @@
         c = b'
         length(c)   %Î¬ÊýÒ²Îª5
     
-% Ë«ÏÂ±ê×ª»»Îªµ¥ÏÂ±ê£¬sub2indº¯Êý
+% Ë«ÏÂ±ê×ª»»Îªµ¥ÏÂ±ê£¬sub2indº¯Êý  % ÖØÒª!!!£¡
          A = [17 24 1 8; 2 22 7 14; 4 6 13 20];%´´½¨Ò»¸ö¶þÎ¬Êý×é
          % ÕâÀïÊ¹ÓÃÁËÈýÎ¬Êý×éµÄÑ°Ö··½Ê½
          A(:,:,2) = A - 10  %£¡£¡½«¶þÎ¬Êý×éÖÐµÄÃ¿¸öÔªËØ -10,ÓÃÕâÖÖ·½Ê½ÊÇÎªÁË¿´µ½×î³õµÄAÊý×é£¬ÒÔ¼°ÐÞ¸ÄºóµÄA£¬×îÖ±½ÓµÄ°ì·¨¾ÍÊÇ A = A - 10£¬ºóÃæ¾Í¿ÉÒÔÖ±½ÓÒýÓÃA(2,1)·ÃÎÊ -8Õâ¸öÔªËØ 
@@ -370,7 +370,7 @@
         x=0:100;
         y=1./(x+1);
         plot(x, y);
-        legend( 'y=1/(x+1)');   %ÎªÍ¼ÏñÌí¼ÓËµÃ÷
+        legend( 'y=1/(x+1)');   % Ìí¼ÓÍ¼Àý£¬ÎªÍ¼ÏñÌí¼ÓËµÃ÷
         
  % Éú³ÉÒ»¸öÐÅºÅ£ºx=sin(2*pi*t)+sin(4*pi*t)
         t = [0:199]./100;      %²ÉÑùÊ±¼äµã
@@ -435,7 +435,7 @@
 
 % ½¨Á¢¾ØÕóA£¬ÕÒ³öÔÚ[10£¬20]Çø¼äµÄÔªËØµÄÎ»ÖÃ¡£
         A = [4,15,-45,10,6;56,0,17,-45,0];
-        find(A>=10 & A<=20)     %ÕÒµ½Âú×ãÒªÇóµÄÔªËØÎ»ÖÃ
+        find(A>=10 & A<=20)     %ÕÒµ½Âú×ãÒªÇóµÄÔªËØÎ»ÖÃ !!!×¢ÒâÕâÀïÒªÊ¹ÓÃ & ¶ø²»ÊÇ &&£¨µ«×Ô¼ºÎ´È¥°Ù¶È£¡£¡£¨²¹³ä£©£©
         
 %% ×î´óÖµºÍ×îÐ¡Öµ   P84
 %  1¡¢ÇóÏòÁ¿µÄ×î´óÖµºÍ×îÐ¡Öµ
@@ -454,7 +454,7 @@
         % l =
         %     2
         
-%  2¡¢Çó¾ØÕóµÄ×î´óÖµºÍ×îÐ¡Öµ
+%  2¡¢Çó¾ØÕóµÄ×î´óÖµºÍ×îÐ¡Öµ  £¨£¡¶à¿´¼¸±é£©
 %       Çó¾ØÕóAµÄ×î´óÖµµÄº¯ÊýÓÐ3ÖÖµ÷ÓÃ¸ñÊ½£¬·Ö±ðÊÇ£º
 %       (1) max(A)£º·µ»ØÒ»¸öÐÐÏòÁ¿£¬ÏòÁ¿µÄµÚi¸öÔªËØÊÇ¾ØÕóAµÄµÚiÁÐÉÏµÄ×î´óÖµ£»
 %       (2) [Y,U]=max(A)£º·µ»ØÐÐÏòÁ¿YºÍU£¬YÏòÁ¿¼ÇÂ¼AµÄÃ¿ÁÐµÄ×î´óÖµ£¬UÏòÁ¿¼ÇÂ¼Ã¿ÁÐ×î´óÖµµÄÐÐºÅ£»
@@ -529,7 +529,7 @@
             x = chinese+1;
             out2 = ischar(x)	           % out2 µÄÖµÊÇ 0£¬´ú±í x ²»ÊÇ×Ö·û´®±äÁ¿
 
-% Ò»¸ö×Ö·ûÊý×é±äÁ¿´æ´¢¶àÐÐ×Ö·û´®
+% Ò»¸ö×Ö·ûÊý×é±äÁ¿´æ´¢¶àÐÐ×Ö·û´® £¨¶à¿´¼¸±é£©£¡
 % 1¡¢Ê¹ÓÃ¶þÎ¬×Ö·ûÊý×é£¨Two Dimensional Character Arrays£©
 % ±ØÐëÏÈÈ·ÈÏÃ¿¸ö×Ö·û´®£¨¼´Ã¿Ò»ÐÐ£©µÄ³¤¶ÈÒ»Ñù£¬·ñÔò¾Í±ØÐëÔÚ¶Ì×Ö·û´®½áÎ²²¹Æë¿Õ¸ñ
 % 2¡¢Ê¹ÓÃcharÖ¸Áî´æ´¢¶à×Ö·û´®
@@ -572,7 +572,7 @@
 
 %%   Êý×éÎ¬ÊýµÄ¼õÐ¡ £¨¶à¿´¼¸±é£©P100
     % É¾³ýÊý×éµÄÄ³ÁÐºÍÐÐ
-          a = magic(4), a(:,2)=[] %Ê¹ÓÃmagicº¯Êý´´½¨Ò»¸ö4*4µÄÊý×é£¬È»ºóÉ¾³ýµÚ¶þÁÐ
+          a = magic(4), a(:,2)=[] %Ê¹ÓÃmagicº¯Êý´´½¨Ò»¸ö4*4µÄÊý×é£¬È»ºóÉ¾³ýµÚ¶þÁÐ,×Ô¼ºdoc magicº¯ÊýÓÃ·¨
     % É¾³ý(2-D¡¢3-D)Êý×éµÄµ¥¸öÔªËØ
     %Ê¹ÓÃ¡°È«ÏÂ±ê¡±·½Ê½£¬²»ÄÜÉ¾³ýµ¥¸öÔªËØ£¨×¢Òâ£¡£©
           a(1, 2)=[]   %ÏµÍ³»á¾¯¸æÐÅÏ¢
@@ -622,7 +622,7 @@
         %     Name      Size            Bytes  Class    Attributes
         %     d              2x3                48     cell 
         % ×¢Òâ£ºÃ¿¸öcellÕ¼ÓÐ4¸ö×Ö½ÚµÄ¿Õ¼ä
-        d(1,3) = {1:3};  % or d{1,3} = 1:3;    ½«Êý×éµÚ1ÐÐµÚ3ÁÐ¸öÔªËØ³õÊ¼»¯ 
+        d(1,3) = {1:3};  % or d{1,3} = 1:3;    ½«Êý×éµÚ1ÐÐµÚ3ÁÐµÄÊý×éÔªËØ½øÐÐ³õÊ¼»¯ 
         
 %% ÏÔÊ¾Ôª°ûÊý×éµÄÄÚÈÝ
 % celldispÏÔÊ¾Ôª°ûÊý×éµÄÈ«²¿ÄÚÈÝ
@@ -631,7 +631,7 @@
         %     [3x3 double]             'Anne Smith' 
         %     [3.0000 + 7.0000i]    [1x21 double]
         celldisp(a)  %ÏÔÊ¾È«²¿ÄÚÈÝ
-        cellplot(a)   %Í¼ÐÎ·½Ê½ÏÔÊ¾Ôª°ûÊý×éµÄ½á¹¹
+        cellplot(a)   %Í¼ÐÎ·½Ê½ÏÔÊ¾Ôª°ûÊý×éµÄ½á¹¹£¬×Ô¼º¶¯ÊÖÁ·Ò»±é£¡
 
 % Ê¹ÓÃÄÚÈÝÏÂ±êË÷ÒýÏÔÊ¾Ö¸¶¨Ôª°ûµÄÊý¾Ý
 % ¸ñÊ½£ºvar_name{row_index, column_index}
@@ -851,10 +851,10 @@ hold off   È¡Ïûµ±Ç°×ø±êÖáºÍÍ¼ÐÎ±£³Ö£¬ÕâÖÖ×´Ì¬ÏÂ£¬µ÷ÓÃplot»æÖÆÍêÈ«ÐÂµÄÍ¼ÐÎ£¬²»±£Á
             y2 = 0.8*exp(-0.5*x).*sin(10*x);
             plotyy(x,y1,x,y2);
 
-%% subplotÖ¸Áî£º¶à×ÓÍ¼    P136
+%% subplotÖ¸Áî£º¶à×ÓÍ¼    P136  £¨²»ÊìÏ¤£¬¶à¿´¼¸±é£¡£©
 % ÔÚÍ¬Ò»Í¼ÐÎ´°¿Ú²¼ÖÃ¼¸·ù¶ÀÁ¢µÄ×ÓÍ¼
 % subplot(m, n, k)	
-%        Ê¹£¨mxn£©·ù×ÓÍ¼ÖÐµÚk¸ö×ÓÍ¼³ÉÎªµ±Ç°Í¼
+%        Ê¹£¨m * n£©·ù×ÓÍ¼ÖÐµÚk¸ö×ÓÍ¼³ÉÎªµ±Ç°Í¼
 % subplot(¡®postion¡¯, [left, bottom, width, height])  
 %        ÔÚÖ¸¶¨µÄÎ»ÖÃÉÏ¿ª±Ù×ÓÍ¼£¬²¢³ÉÎªµ±Ç°Í¼
 % ËµÃ÷£º
@@ -955,8 +955,8 @@ hold off   È¡Ïûµ±Ç°×ø±êÖáºÍÍ¼ÐÎ±£³Ö£¬ÕâÖÖ×´Ì¬ÏÂ£¬µ÷ÓÃplot»æÖÆÍêÈ«ÐÂµÄÍ¼ÐÎ£¬²»±£Á
     %¡¾Àý1¡¿»æÖÆy=1-exp(-0.3*t).*cos(0.7*t) 
             t=6*pi*(0:100)/100;
             y=1-exp(-0.3*t).*cos(0.7*t);
-            tt=t(find(abs(y-1)>0.05)); 
-            ts=max(tt);                          
+            tt=t(find(abs(y-1)>0.05));   % ttÖÐ±£´æËùÓÐÂú×ãÌõ¼þµÄy
+            ts=max(tt);                      % tsÖÐ±£´ættÖÐyµÄ×î´óÖµ
             plot(t,y,'r-');     %»æÖÆÇúÏß
             grid on;          %»æÖÆ·Ö¸îÏß 
             axis([0,6*pi,0.6,max(y)]);      %»­×ø±ê·¶Î§                                             
@@ -1549,33 +1549,6 @@ hold off   È¡Ïûµ±Ç°×ø±êÖáºÍÍ¼ÐÎ±£³Ö£¬ÕâÖÖ×´Ì¬ÏÂ£¬µ÷ÓÃplot»æÖÆÍêÈ«ÐÂµÄÍ¼ÐÎ£¬²»±£Á
              %                5
 
 
- 
-            
-
-
-
+%% ²¹³ä
+        B = permate(A,[2,3,1]);     % ¶Ô¾ØÕó½øÐÐ×ªÖÃÖØÅÅ£¬¼´½«A°´µÚ2£¬µÚ3£¬µÚ1Î¬ÖØÐÂÅÅÁÐ¾ØÕóA£¬ÔªËØµÄÄÚÈÝÃ»ÓÐ±ä¡£
         
-
-
-        
-
-        
-
-        
-
-
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            

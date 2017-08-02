@@ -9,3 +9,4 @@ function [s,p] = fcircle(r)
      % 通过使用类似这样的语法调用该函数
      %         fcircle(1)
      %         [s,c]=fcircle(2)
+end

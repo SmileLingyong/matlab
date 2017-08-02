@@ -4,3 +4,4 @@ function f = factor(n)
          else
              f = factor(n-1)*n;  %µÝ¹éµ÷ÓÃÇó(n-1)!
          end
+end

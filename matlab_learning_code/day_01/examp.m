@@ -1,4 +1,4 @@
- function fout = charray(a,b,c)     %#ok
+ function fout = charray(a,b,c)     
              if nargin == 1
                  fout = a;end
              if nargin == 2
@@ -6,3 +6,4 @@
             if nargin == 3
                  fout = (a*b*c)/2;
             end
+ end
