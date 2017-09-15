@@ -1552,3 +1552,40 @@ hold off   È¡Ïûµ±Ç°×ø±êÖáºÍÍ¼ÐÎ±£³Ö£¬ÕâÖÖ×´Ì¬ÏÂ£¬µ÷ÓÃplot»æÖÆÍêÈ«ÐÂµÄÍ¼ÐÎ£¬²»±£Á
 %% ²¹³ä
         B = permate(A,[2,3,1]);     % ¶Ô¾ØÕó½øÐÐ×ªÖÃÖØÅÅ£¬¼´½«A°´µÚ2£¬µÚ3£¬µÚ1Î¬ÖØÐÂÅÅÁÐ¾ØÕóA£¬ÔªËØµÄÄÚÈÝÃ»ÓÐ±ä¡£
         
+        
+        
+%% º¯Êý¾ä±ú ¡¢ÄäÃûº¯Êý 
+%    ¢Ù º¯Êý¾ä±ú£¨function handle£©Í¨Ë×µÄÀí½â¾ÍÊÇÏàµ±ÓÚº¯ÊýÖ¸Õë
+%    Óï·¨£º  handle = @function_name                      £º±íÊ¾Ïàµ±ÓÚ¶¨ÒåÒ»¸öº¯ÊýÖ¸ÕëÖ¸Ïòfunction_name
+%       or     handle = @(arglist)anonymous_function   : ±íÊ¾¶¨ÒåÄäÃûº¯Êý
+% 
+%    Àý 1£º   ±ÈÈç¶¨Òå f(x) = x^2£¬ ¿ÉÒÔÐ´Îª
+        f = @(x)(x.^2)
+%     ÆäÖÐ@(x)(x.^2)¾ÍÊÇÄäÃûº¯Êý£¬µÚÒ»À¨ºÅÀïÃæÊÇ×Ô±äÁ¿£¬µÚ¶þ¸öÀ¨ºÅÀïÊÇ±í´ïÊ½£¬@ÊÇº¯ÊýÖ¸Õë       
+%     f=@(x)(x.^2)±íÊ¾½«ÄäÃûº¯Êý@(x)(x.^2)¸³Öµ¸øf£¬ÓÚÊÇf¾Í±íÊ¾¸Ãº¯Êý¡£
+%     ÓÚÊÇ  f(2)=2.^2=4£»      f(1:3)=[1:3].^2=[14 9]
+% 
+%     Àý 2£ºf = @(x)acos(x)
+%     ÆäÖÐfÎªº¯Êý¾ä±ú£¬@ÊÇ¶¨Òå¾ä±úµÄÔËËã·û¡£ f = @(x)acos(x)Ïàµ±ÓÚ½¨Á¢ÁËÒ»¸öº¯ÊýÎÄ¼þ  f.m
+                 function y = f(x)
+                     y = acos(x);
+                 end
+                 
+%     ¢Ú ¶¨ÒåÄäÃûº¯ÊýÊ±Ò²¿ÉÒÔµ÷ÓÃ±ðµÄÄäÃûº¯Êý    
+        f1 = @(x, y)(x.^2 + y.^2)    % ¶¨ÒåÁËº¯Êý x^2 + y^2
+        f2 = @(t)( f1(t, 2) )               % ¶¨ÒåÁËº¯Êý t^2 + 4
+        f3 = @(x)( f1( x(1), x(2) ) )    % ¶¨ÒåÁËº¯Êý x(1)^2 + x(2)^2
+        Ê¹ÓÃÄäÃûº¯ÊýÊ±£¬Ò»¶¨Òª×¢Òâº¯Êý±¾ÉíµÄ²ÎÊýºÍÐÎÊ½£¬Èç  %#ok
+        f1(2, 3)   % ±íÊ¾2^2+3^2
+        f2(3)       % ±íÊ¾3^2+4
+        f3([1,2])  % ±íÊ¾1^2+2^2
+        
+%  º¯Êý¾ä±úµÄºÃ´¦
+%        ¢ÙÌá¸ßÔËÐÐËÙ¶È¡£ÒòÎªmatlab¶Ôº¯ÊýµÄµ÷ÓÃÃ¿´Î¶¼ÊÇÒªËÑË÷ËùÓÐµÄÂ·¾¶£¬´Óset pathÖÐÎÒÃÇ¿ÉÒÔ¿´µ½£¬Â·¾¶ÊÇ·Ç³£µÄ¶àµÄ£¬
+%           ËùÒÔÈç¹ûÒ»¸öº¯ÊýÔÚÄãµÄ³ÌÐòÖÐÐèÒª¾­³£ÓÃµ½µÄ»°£¬Ê¹ÓÃº¯Êý¾ä±ú£¬¶ÔÄãµÄËÙ¶È»áÓÐÌá¸ßµÄ¡£
+%        ¢ÚÊ¹ÓÃ¿ÉÒÔÓë±äÁ¿Ò»Ñù·½±ã¡£±ÈÈçËµ£¬ÎÒÔÙÕâ¸öÄ¿Â¼ÔËÐÐºó£¬´´½¨ÁË±¾Ä¿Â¼µÄÒ»¸öº¯Êý¾ä±ú£¬µ±ÎÒ×ªµ½ÆäËûµÄÄ¿Â¼ÏÂµÄÊ±ºò£¬
+%           ´´½¨µÄº¯Êý¾ä±ú»¹ÊÇ¿ÉÒÔÖ±½Óµ÷ÓÃµÄ£¬¶ø²»ÐèÒª°ÑÄÇ¸öº¯ÊýÎÄ¼þ¿½±´¹ýÀ´¡£ÒòÎªÄã´´½¨µÄfunction handlesÖÐ£¬ÒÑ¾­°üº¬ÁËÂ·¾¶£¬
+
+
+
+        
