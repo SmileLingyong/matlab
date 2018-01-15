@@ -16,8 +16,7 @@ clear;
 close all;
 
 %% Load dataset and set default parameters
-libsvm_pa
-rmpath();
+libsvm_path = 'C:\Program Files\MATLAB\R2017b\toolbox\libsvm-3.22\matlab';
 load fisheriris;
 samples_types = 2;  % types of samples, it is different from the number set in 'learn_randomForest', beacuse the svmtrain() function can only solve a binary classification problem
 samples_nums = 50;  % sample number of each type
@@ -26,7 +25,7 @@ trn_samples_feat = [];   % training samples
 tst_samples_feat = [];   % testing samples
 trn_samples_label = [];  % training samples label;
 tst_samples_label = [];  % testing samples label;
-% 
+
 %% Split the dataset to 'Training samples' and 'Testing samples'
 % It's a fundamental point in machine learning that every samples will appear in TEST case MUST NOT be used at TRAINING time
 % Fisheriris dataset contains 2 variable:
@@ -52,12 +51,12 @@ end
 
 %% Training
 start = tic();
-model = svmtrain(trn_samples_feat, trn_samples_label);
+model = fitcsvm(trn_samples_feat, trn_samples_label);   %% the svmtrain() method was originally used. 
 time_trn = toc(start);
 fprintf('Training Finished: cost %.3f(s)\n', time_trn);
 
 %% Testing
-pred_labels = svmclassify(model, tst_samples_feat);
+pred_labels = predict(model, tst_samples_feat);         %% the svmclassify() method was originally used. 
 accuracy = sum(strcmp(tst_samples_label, pred_labels)) / (tst_num * samples_types);
 fprintf('Accuracy: %.2f\n', accuracy); 
 

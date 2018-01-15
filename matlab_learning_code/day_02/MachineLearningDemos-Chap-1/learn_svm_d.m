@@ -17,7 +17,7 @@ clear;
 close all;
 
 %% Add libsvm to search path
-libsvm_path = '/home/xinke/mytools/libsvm-3.22/';
+libsvm_path = 'C:\Program Files\MATLAB\R2017b\toolbox\libsvm-3.22\';
 addpath([libsvm_path, 'matlab']);
 
 %% Setting curve function

@@ -51,7 +51,7 @@ fprintf('Accuracy: %.3f\n', acc);
 %% Visualization
 % select some test images randomly and show the results
 figure(1);
-set(gcf, 'Position', [500,100,1000,800]); % set the window size
+set(gcf, 'Position', [500,100,800,800]); % set the window size
 num_select = 10;
 idx = randperm(numel(tst_labels), num_select * num_select);
 pred_idx = pred_labels(idx);

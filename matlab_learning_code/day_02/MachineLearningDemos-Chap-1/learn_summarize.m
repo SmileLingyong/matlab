@@ -47,7 +47,10 @@ clear;
 close all;
 
 %% Load dataset and set default parameters
-libsvm_path = '/home/xinke/mytools/libsvm-3.22/matlab';
+
+% libsvm_path = '/home/xinke/mytools/libsvm-3.22/matlab'; 
+
+libsvm_path = 'C:\Program Files\MATLAB\R2017b\toolbox\libsvm-3.22\matlab';
 if ~isempty(regexp(path, libsvm_path))
     rmpath(libsvm_path); % remove the libsvm path from search path if it have been added
 end

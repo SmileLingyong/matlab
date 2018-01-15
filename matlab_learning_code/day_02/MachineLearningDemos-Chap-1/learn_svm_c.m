@@ -38,7 +38,7 @@ close all;
 % directly. However, the MATLAB support mixture coding technology, it
 % provide a mex() function to compile the source code to excutable file for
 % itself (.mexw in windows and .mexa in linux)
-libsvm_path = '/home/xinke/mytools/libsvm-3.22/'; % you have to modify the path to your own package path, here is my package path under Ubuntu 14.04, if you are using windows, it would be like 'd:/mytools/libsvm-3.22'
+libsvm_path = 'C:\Program Files\MATLAB\R2017b\toolbox\libsvm-3.22\'; % you have to modify the path to your own package path, here is my package path under Ubuntu 14.04, if you are using windows, it would be like 'd:/mytools/libsvm-3.22'
 % If you have already compiled the source code, you can comment the
 % following code
 demo_path = cd;
