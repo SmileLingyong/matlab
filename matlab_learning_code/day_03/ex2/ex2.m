@@ -101,8 +101,16 @@ options = optimset('GradObj', 'on', 'MaxIter', 400);
 [theta, cost] = ...
 	fminunc( @(t)(costFunction(t, X, y)), initial_theta, options );  %% not clearly of this function.
 % 通过使用拟牛顿法，设置相应的option参数，自动求解代价函数costFunction，使得代价函数最小时的theta值，以及最小的代价cost
-% fminunc通过给定初始值 initial_theta 然后，使用options参数中指定的优化参数（打开梯度下降，最大迭代次数为400）,找到使代价函数costFucntion中J最小时的theta，然后返回此时求得的theta
-% 其中 的initial_theta 就是传入了fminunc中的第一个参数 @(t)(costFunction(t, X, y))  的 t中  --------------------（个人理解）
+% fminunc通过给定初始值 initial_theta，传入第一个匿名函数中@(t)(costFunction(t, X, y))，即传入t中。然后，使用options参数中指定的优化参数（打开梯度下降，最大迭代次数为400）,找到使代价函数costFucntion中J最小时的theta，然后返回此时求得的theta
+% 其中 的initial_theta 传入了fminunc中的第一个参数 @(t)(costFunction(t, X, y))  的
+% t中，workspace工作空间中存在的X，y会被自动输入到costFunction(t, X,y)中去，这样才能调用costFunction(t, X, y)函数。
+% 这样写的目的，是比较方便调用函数，我们只需要传入初始的 initial_theta于匿名函数中，其他的参数X, y，匿名函数会自行出入进来。(自己是这样理解的)
+
+% 其中，@(t)(costFunction(t, X, y)) 定义了一个匿名函数，其输入参数为t。这一句相当于 fun = @(t)(costFunction(t, X, y))，以后使用的时候直接通过
+% fun(28)这种形式就可以调用该匿名函数，其就相当于调用了costFunction(28, X, y)，这里的X，y是已经存在workspace中的变量，会被costFunction函数自动调用传入计算。
+
+% 补充函数句柄@ 以及 fminunc()函数功能理解. （自己的印象笔记）
+% 参考官方文档：https://cn.mathworks.com/help/optim/ug/fminunc.html?s_tid=srchtitle
 
 
 % Print theta to screen
