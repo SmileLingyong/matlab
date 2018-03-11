@@ -16,7 +16,7 @@ clear;
 close all;
 
 %% Load dataset and set default parameters
-libsvm_path = 'C:\Program Files\MATLAB\R2017b\toolbox\libsvm-3.22\matlab';
+libsvm_path = 'C:\ProgramFiles\MATLAB\R2017b\toolbox\libsvm-3.22\matlab';  % 这里面使用的都是matlab自带的svm工具.
 load fisheriris;
 samples_types = 2;  % types of samples, it is different from the number set in 'learn_randomForest', beacuse the svmtrain() function can only solve a binary classification problem
 samples_nums = 50;  % sample number of each type
@@ -60,9 +60,21 @@ pred_labels = predict(model, tst_samples_feat);         %% the svmclassify() met
 accuracy = sum(strcmp(tst_samples_label, pred_labels)) / (tst_num * samples_types);
 fprintf('Accuracy: %.2f\n', accuracy); 
 
-%% Visualization the support vector
+%% Visualization the support vector   %% 这里可以参考官方文档
 xdata = meas(51:end,3:4); % because the display option set in svmtrain can only plot 2-Dimension data, we select 2 dimension from the raw data, you can also try other dimensions
 % xdata = meas(51:end,2:3);
 % xdata = meas(51:end,1:2);
 group = species(51:end);
-svmStruct = svmtrain(xdata,group,'ShowPlot',true);
+% svmStruct = svmtrain(xdata,group,'ShowPlot',true);   %% the svmtrain() method was originally used. 
+
+
+
+% added by SmileLingyong 2018.01.17 19:15   --------------------------------------------------
+svmStruct = fitcsvm(xdata, group);
+sv = svmStruct.SupportVectors;
+figure;
+gscatter(xdata(:, 1), xdata(:, 2), group);
+hold on;
+plot(sv(:, 1), sv(:, 2), 'ko', 'MarkerSize', 10);
+legend('versicolor', 'virginica', 'Support Vector');
+hold off;

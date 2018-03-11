@@ -92,17 +92,21 @@ for i = 1:samples_types
 end
 
 %% Training
-SVM = svmtrain(trn_samples_feat, trn_samples_label);
+% SVM = svmtrain(trn_samples_feat, trn_samples_label);
+SVM = fitcsvm(trn_samples_feat, trn_samples_label);
 RandomTree = TreeBagger(50, trn_samples_feat, trn_samples_label);
 % LogisticRegression = mnrfit(trn_samples_feat, trn_samples_label)
-NaiveBayes = NaiveBayes.fit(trn_samples_feat, trn_samples_label);
+% NaiveBayes = NaiveBayes.fit(trn_samples_feat, trn_samples_label);  % this function will out of time.
+NaiveBayes = fitcnb(trn_samples_feat, trn_samples_label);
 KNN = fitcknn(trn_samples_feat, trn_samples_label);
 DiscriminantAnalysis = fitcdiscr(trn_samples_feat, trn_samples_label);
 Boosting = fitensemble(trn_samples_feat, trn_samples_label, 'LogitBoost', 10, 'Tree'); % Boosting is an ensemble learning method, the fitensemble function support several learning methods like 'AdaBoost', 'LogitBoost' and etc. use doc fitensemble to see more details 
 %% Testing
-pred_svm = svmclassify(SVM, tst_samples_feat);
+% pred_svm = svmclassify(SVM, tst_samples_feat);
+pred_svm = predict(SVM, tst_samples_feat);
 pred_rf = predict(RandomTree, tst_samples_feat);
-[score, pred_nb]  = posterior(NaiveBayes, tst_samples_feat); % the score is the probability of each class like [0.99, 0.01]
+% [score, pred_nb]  = posterior(NaiveBayes, tst_samples_feat); % the score is the probability of each class like [0.99, 0.01] 
+% posterior doesn't work in matlab 2017b
 pred_knn = predict(KNN, tst_samples_feat);
 pred_da = predict(DiscriminantAnalysis, tst_samples_feat);
 pred_boost = predict(Boosting, tst_samples_feat);
@@ -111,7 +115,7 @@ pred_boost = predict(Boosting, tst_samples_feat);
 % This demo use a very simple dataset, all the classifer get a good score
 acc_svm = sum(strcmp(pred_svm, tst_samples_label)) / (tst_num * samples_types);
 acc_rf = sum(strcmp(pred_rf, tst_samples_label)) / (tst_num * samples_types);
-acc_nb = sum(strcmp(pred_nb, tst_samples_label)) / (tst_num * samples_types);
+% acc_nb = sum(strcmp(pred_nb, tst_samples_label)) / (tst_num * samples_types);
 acc_knn = sum(strcmp(pred_knn, tst_samples_label)) / (tst_num * samples_types);
 acc_da = sum(strcmp(pred_da, tst_samples_label)) / (tst_num * samples_types);
 acc_boost = sum(strcmp(pred_boost, tst_samples_label)) / (tst_num * samples_types);
@@ -119,7 +123,7 @@ acc_boost = sum(strcmp(pred_boost, tst_samples_label)) / (tst_num * samples_type
 fprintf('Accuracy:\n');
 fprintf('SVM: %.2f\n', acc_svm);
 fprintf('Random Forest: %.2f\n', acc_rf);
-fprintf('Naive Bayes: %.2f\n', acc_nb);
+% fprintf('Naive Bayes: %.2f\n', acc_nb);
 fprintf('KNN: %.2f\n', acc_knn);
 fprintf('Discriminant Analysis: %.2f\n', acc_da);
-fprintf('Boosting: %.2f\n', acc_da);
+fprintf('Boosting: %.2f\n', acc_boost);

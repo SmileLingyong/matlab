@@ -85,10 +85,3 @@ tst_labels_virtual = zeros(size(tst_feature, 1), 1);
 
 % predict_label_ is as same as predict_label
 diff = sum(predict_label - predict_label_)
-
-
-
-
-
-
-

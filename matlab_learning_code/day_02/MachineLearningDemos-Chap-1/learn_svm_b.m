@@ -56,21 +56,23 @@ trn_setosa_label = trn_samples_label;
 trn_versicolor_label = trn_samples_label;
 trn_virginica_lavel = trn_samples_label;
 
-trn_setosa_label(~cellfun(@(x) strcmp(x, 'setosa'), trn_setosa_label)) = {'others'};
+% 这里创建了一个匿名函数@(x) strcmp(x, 'setosa')，用于判断 当前 x
+% 是否与'setosa'相同，然后通过使用cellfun函数，对元胞数组trn_setosa_label中的每个元胞应用该匿名函数进行比较，该元跑不是 'setosa'，则将其归为 'others' 类.
+trn_setosa_label(~cellfun(@(x) strcmp(x, 'setosa'), trn_setosa_label)) = {'others'};  
 trn_versicolor_label(~cellfun(@(x) strcmp(x, 'versicolor'), trn_versicolor_label)) = {'others'};
 trn_virginica_lavel(~cellfun(@(x) strcmp(x, 'virginica'), trn_virginica_lavel)) = {'others'};
 %% Training
 start = tic();
-model_setosa = svmtrain(trn_samples_feat, trn_setosa_label);
-model_versicolor = svmtrain(trn_samples_feat, trn_versicolor_label);
-model_virginica = svmtrain(trn_samples_feat, trn_virginica_lavel);
+model_setosa = fitcsvm(trn_samples_feat, trn_setosa_label);   %% the svmtrain() method was originally used, which is out of time.
+model_versicolor = fitcsvm(trn_samples_feat, trn_versicolor_label);
+model_virginica = fitcsvm(trn_samples_feat, trn_virginica_lavel);
 time_trn = toc(start);
 fprintf('Training Finished: cost %.3f(s)\n', time_trn);
 
 %% Testing
-pred_setosa = svmclassify(model_setosa, tst_samples_feat);
-pred_versicolor = svmclassify(model_versicolor, tst_samples_feat);
-pred_virginica = svmclassify(model_virginica, tst_samples_feat);
+pred_setosa = predict(model_setosa, tst_samples_feat);
+pred_versicolor = predict(model_versicolor, tst_samples_feat);
+pred_virginica = predict(model_virginica, tst_samples_feat);
 
 setosa_idx = cellfun(@(x) strcmp(x, 'setosa'), pred_setosa);
 versicolor_idx = cellfun(@(x) strcmp(x, 'versicolor'), pred_versicolor);
